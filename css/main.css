@@ -47,6 +47,13 @@
 	body {
 		-webkit-text-size-adjust: none;
 	}
+	#nav-inner .nav-item {
+    	margin-right: 0.5em;
+	}
+	.major p{
+		font-size: 16px;
+		color: #333;
+	}
 
 /* Box Model */
 
