@@ -20,6 +20,17 @@
 
 	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 		display: block;
+
+	}
+	.article
+	{
+		text-align: justify;
+	}
+	.article p {
+    	text-indent: 2em;
+	}
+	.article blockquote p {
+    	text-indent: 0em;
 	}
 
 	body {
@@ -3134,4 +3145,16 @@
 #main section img {
 	max-width: 95%;
 	height: auto;
+}
+.ad-banner{
+	margin: -80px 0 0 0;
+}
+.ad-banner a{
+	border-bottom: none;
+}
+.small-text {
+     display: block;
+    font-size: 0.85em;
+    color: #888;
+    text-align: center;
 }

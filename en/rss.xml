@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[(key, ...args) => {
+            if (!key)
+                return '';
+            const str = data[key] || key;
+            return (0, sprintf_js_1.vsprintf)(str, args);
+        }]]></title><description><![CDATA[(key, ...args) => {
+            if (!key)
+                return '';
+            const str = data[key] || key;
+            return (0, sprintf_js_1.vsprintf)(str, args);
+        }]]></description><link>https://blog.overexposure.media</link><generator>RSS for Node</generator><lastBuildDate>Sun, 19 Jul 2026 12:03:58 GMT</lastBuildDate><atom:link href="https://blog.overexposure.media/en/rss.xml" rel="self" type="application/rss+xml"/><language><![CDATA[en]]></language><item><title><![CDATA[walden01]]></title><description><![CDATA[<h2 id="Walden"><a href="#Walden" class="headerlink" title="Walden"></a>Walden</h2><h3 id="by-Henry-David-Thoreau"><a href="#by-Henry-David-Thoreau" class="headerlink" title="by Henry David Thoreau"></a>by Henry David Thoreau</h3><p>When I wrote the following pages, or rather the bulk of them, I lived alone, in the woods, a mile from any neighbor, in a house which I had built myself, on the shore of Walden Pond, in Concord, Massachusetts, and earned my living by the labor of my hands only. I lived there two years and two months. At present I am a sojourner in civilized life again.</p>]]></description><link>https://blog.overexposure.mediaen/post/2026/07/walden-ch1-para1-2/</link><guid isPermaLink="true">https://blog.overexposure.mediaen/post/2026/07/walden-ch1-para1-2/</guid><pubDate>Thu, 16 Jul 2026 11:30:40 GMT</pubDate></item></channel></rss>
