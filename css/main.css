@@ -3131,3 +3131,7 @@
 			}
 
 	}
+#main section img {
+	max-width: 95%;
+	height: auto;
+}
