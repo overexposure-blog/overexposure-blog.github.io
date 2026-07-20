@@ -3147,10 +3147,14 @@
 	height: auto;
 }
 .ad-banner{
-	margin: -80px 0 0 -80px;
+	margin: 0 0 0 0;
 }
 .ad-banner a{
 	border-bottom: none;
+}
+.ad-banner a img{
+	max-width: 100%;
+	height: auto;
 }
 .small-text {
      display: block;
