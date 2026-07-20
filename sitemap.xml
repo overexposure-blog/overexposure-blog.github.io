@@ -11,15 +11,6 @@
   </url>
   
   <url>
-    <loc>https://blog.overexposure.media/zh-cn/post/2026/07/william-henley-invictus-analysis/</loc>
-    
-    <lastmod>2026-07-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.overexposure.media/en/post/2026/07/walden-ch1-para1-2-analysis/</loc>
     
     <lastmod>2026-07-20</lastmod>
@@ -59,6 +50,33 @@
     <loc>https://blog.overexposure.media/tags/index.html</loc>
     
     <lastmod>2026-07-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.overexposure.media/zh-cn/post/2026/07/wheeler-wilcox-solitude-analysis/</loc>
+    
+    <lastmod>2026-07-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.overexposure.media/zh-cn/post/2026/07/thoreau-walden-ch1para1-analysis/</loc>
+    
+    <lastmod>2026-07-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.overexposure.media/zh-cn/post/2026/07/william-ernest-henley-invictus-analysis/</loc>
+    
+    <lastmod>2026-07-07</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -151,28 +169,91 @@
   </url>
   
   <url>
-    <loc>https://blog.overexposure.media/tags/william-henry/</loc>
+    <loc>https://blog.overexposure.media/tags/ella-wheeler-wilcox/</loc>
     <lastmod>2026-07-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.overexposure.media/tags/fate/</loc>
+    <loc>https://blog.overexposure.media/tags/solitude/</loc>
     <lastmod>2026-07-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.overexposure.media/tags/suffering/</loc>
+    <loc>https://blog.overexposure.media/tags/loneliness/</loc>
     <lastmod>2026-07-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.overexposure.media/tags/will/</loc>
+    <loc>https://blog.overexposure.media/tags/english-poetry/</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.overexposure.media/tags/poetry-translation/</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.overexposure.media/tags/william-ernest-henley/</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.overexposure.media/tags/invictus/</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.overexposure.media/tags/unconquerable-spirit/</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.overexposure.media/tags/henry-david-thoreau/</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.overexposure.media/tags/english-prose/</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.overexposure.media/tags/self-exploration/</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.overexposure.media/tags/self-rebuilding/</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.overexposure.media/tags/independence/</loc>
     <lastmod>2026-07-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -189,6 +270,13 @@
   
   <url>
     <loc>https://blog.overexposure.media/categories/literary-analysis/poetry/</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.overexposure.media/categories/literary-analysis/prose/</loc>
     <lastmod>2026-07-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
