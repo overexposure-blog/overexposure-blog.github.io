@@ -26,6 +26,11 @@
 	{
 		text-align: justify;
 	}
+	.article .post-author p
+	{
+		text-indent: 0;
+		color:#787878;
+	}
 	.article p {
     	text-indent: 2em;
 	}
