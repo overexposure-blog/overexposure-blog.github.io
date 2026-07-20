@@ -2,7 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.overexposure.media/en/post/2026/07/walden-ch1-para1-2/</loc>
+    <loc>https://blog.overexposure.media/dfrafts/William-Henley-Invictus-Analysis.html</loc>
+    
+    <lastmod>2026-07-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.overexposure.media/en/post/2026/07/Walden-CH1-Para1-2/</loc>
     
     <lastmod>2026-07-20</lastmod>
     
@@ -100,7 +109,7 @@
   </url>
   
   <url>
-    <loc>https://blog.overexposure.media/tags/%E7%BF%BB%E8%AF%91/</loc>
+    <loc>https://blog.overexposure.media/tags/translation/</loc>
     <lastmod>2026-07-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
