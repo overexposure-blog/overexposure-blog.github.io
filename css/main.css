@@ -3154,10 +3154,7 @@
 			}
 
 	}
-#post_content p img {
-	max-width: 95%;
 
-}
 .ad-banner{
 	max-width: 95%;
 	margin: 0 0 0 0;
@@ -3216,10 +3213,14 @@
 	text-indent: 0;
 }
 #post_contente p:has(img) {
-	max-width: 95%;
-  	text-indent: 0em;
+	text-indent: -10em;
 	text-align: center;
 }
+
+#post_content p img {
+	max-width: 95%;
+}
+
 #post_content .caption {
 	text-indent: 0em;
 	text-align: center;
