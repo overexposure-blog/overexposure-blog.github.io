@@ -28,7 +28,7 @@
 	}
 	
 
-	.article blockquote p {
+	#post_content blockquote p {
     	text-indent: 0em;
 	}
 
@@ -1687,6 +1687,7 @@
 		border-left: solid 6px #efefef;
 		margin: 0 0 2em 0;
 		padding: 0.5em 0 0.5em 1.5em;
+	
 	}
 
 	code {
@@ -3202,6 +3203,7 @@
 {
 	margin-bottom: 80px;
 }
+
 .article .post-author p
 {
 	text-indent: 0;
@@ -3209,6 +3211,9 @@
 }	
 #post_content p {
    	text-indent: 2em;	
+}
+#post_content blockquote{
+	text-indent: 0;
 }
 .article p:has(img) {
   	text-indent: 0em;
