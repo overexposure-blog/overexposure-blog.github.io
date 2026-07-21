@@ -3215,11 +3215,11 @@
 #post_content blockquote{
 	text-indent: 0;
 }
-.article p:has(img) {
+#post_contente p:has(img) {
   	text-indent: 0em;
 	text-align: center;
 }
-.article .caption {
+#post_content .caption {
 	text-indent: 0em;
 	text-align: center;
 	margin-top: -2em;
