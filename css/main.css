@@ -26,14 +26,8 @@
 	{
 		text-align: justify;
 	}
-	.article .post-author p
-	{
-		text-indent: 0;
-		color:#787878;
-	}
-	.article p {
-    	text-indent: 2em;
-	}
+	
+
 	.article blockquote p {
     	text-indent: 0em;
 	}
@@ -3147,8 +3141,8 @@
 			}
 
 	}
-#main section img {
-	
+#post_content p img {
+	max-width: 95%;
 
 }
 .ad-banner{
@@ -3162,11 +3156,11 @@
 	max-width: 100%;
 	height: auto;
 }
-.small-text {
-     display: block;
-    font-size: 0.85em;
+.dedication_title {
+    display: block;
+    font-size: 0.66em;
     color: #888;
-    text-align: center;
+    margin-left: 0.1em;
 }
 
 .archive-original-post-header {
@@ -3191,4 +3185,33 @@
 }
 .post-author{
 	text-align: right;
+}
+.post-excerpt
+{
+	margin-bottom: 80px;
+}
+.article .post-author p
+{
+	text-indent: 0;
+	color:#787878;
+}	
+#post_content p {
+   	text-indent: 2em;	
+}
+.article p:has(img) {
+  	text-indent: 0em;
+	text-align: center;
+}
+.article .caption {
+	text-indent: 0em;
+	text-align: center;
+	margin-top: -2em;
+	font-size: 0.85em;
+    color: #888;
+}
+#post_content .dedication {
+	font-weight: 500;
+	text-align: left;
+	text-indent: 0em;
+	
 }
