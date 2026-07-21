@@ -2900,6 +2900,10 @@
 					#header h1 br {
 						display: none;
 					}
+			.archive-original-author-avatar {
+    			width: 100px;
+    			height: 100px;
+			}
 
 		/* Footer */
 
@@ -2960,6 +2964,10 @@
 					#header h1 br {
 						display: inline;
 					}
+			.archive-original-author-avatar {
+    			width: 80px;
+    			height: 80px;
+			}
 
 		/* Footer */
 
@@ -3020,6 +3028,10 @@
 
 			h3 {
 				font-size: 1em;
+			}
+			.archive-original-author-avatar {
+    			width: 60px;
+    			height: 60px;
 			}
 
 		/* Section/Article */
