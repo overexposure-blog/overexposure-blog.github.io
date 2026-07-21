@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.overexposure.media/authors/index.html</loc>
+    <loc>https://blog.overexposure.media/en/post/2026/07/walden-ch1-para1-2-analysis/</loc>
     
     <lastmod>2026-07-21</lastmod>
     
@@ -20,9 +20,9 @@
   </url>
   
   <url>
-    <loc>https://blog.overexposure.media/en/post/2026/07/walden-ch1-para1-2-analysis/</loc>
+    <loc>https://blog.overexposure.media/writers/index.html</loc>
     
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -101,28 +101,7 @@
 
   
   <url>
-    <loc>https://blog.overexposure.media/tags/solitude/</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.overexposure.media/tags/loneliness/</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.overexposure.media/tags/english-poetry/</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.overexposure.media/tags/poetry-translation/</loc>
+    <loc>https://blog.overexposure.media/tags/translation/</loc>
     <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -130,13 +109,6 @@
   
   <url>
     <loc>https://blog.overexposure.media/tags/literary-appreciation/</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.overexposure.media/tags/translation/</loc>
     <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -178,7 +150,7 @@
   </url>
   
   <url>
-    <loc>https://blog.overexposure.media/tags/henry-david-thoreau/</loc>
+    <loc>https://blog.overexposure.media/tags/poetry-translation/</loc>
     <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -186,6 +158,34 @@
   
   <url>
     <loc>https://blog.overexposure.media/tags/walden/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.overexposure.media/tags/thoreau/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.overexposure.media/tags/essay/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.overexposure.media/tags/american-literature/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.overexposure.media/tags/henry-david-thoreau/</loc>
     <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -220,6 +220,27 @@
   </url>
   
   <url>
+    <loc>https://blog.overexposure.media/tags/solitude/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.overexposure.media/tags/loneliness/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.overexposure.media/tags/english-poetry/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.overexposure.media/tags/william-ernest-henley/</loc>
     <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -235,27 +256,6 @@
   
   <url>
     <loc>https://blog.overexposure.media/tags/unconquerable-spirit/</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.overexposure.media/tags/thoreau/</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.overexposure.media/tags/essay/</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.overexposure.media/tags/american-literature/</loc>
     <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
