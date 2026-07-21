@@ -3148,10 +3148,11 @@
 
 	}
 #main section img {
-	max-width: 95%;
-	height: auto;
+	
+
 }
 .ad-banner{
+	max-width: 95%;
 	margin: 0 0 0 0;
 }
 .ad-banner a{
@@ -3166,4 +3167,28 @@
     font-size: 0.85em;
     color: #888;
     text-align: center;
+}
+
+.archive-original-post-header {
+    display: flex;
+    align-items: center;   /* 垂直居中 */
+    gap: 16px;             /* 图片和标题间距 */
+	margin-bottom: 40px; 
+	margin-top: 40px; 
+}
+.archive-original-post-header a{
+	border-bottom: none;
+}
+.archive-original-author-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.archive-original-post-header h2 {
+    margin: 0;
+}
+.post-author{
+	text-align: right;
 }
