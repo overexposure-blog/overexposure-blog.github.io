@@ -3216,6 +3216,7 @@
 	text-indent: 0;
 }
 #post_contente p:has(img) {
+	max-width: 95%;
   	text-indent: 0em;
 	text-align: center;
 }
