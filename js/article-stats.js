@@ -205,11 +205,11 @@ async function toggleLike(){
 
         {
 
-            aid: articleId,
+            p_article_id: articleId,
 
-            alang: articleLang,
+            p_lang: articleLang,
 
-            vid: getVisitorId()
+            p_visitor_id: getVisitorId()
 
         }
 
@@ -262,11 +262,11 @@ async function toggleFavorite(){
 
         {
 
-            aid: articleId,
+             p_article_id: articleId,
 
-            alang: articleLang,
+        p_lang: articleLang,
 
-            vid:getVisitorId()
+        p_visitor_id: getVisitorId()
 
         }
 
@@ -320,9 +320,9 @@ async function loadActionStatus(){
 
         {
 
-            aid: articleId,
+            p_article_id: articleId,
 
-            alang: articleLang,
+            p_lang: articleLang
 
             vid:getVisitorId()
 
