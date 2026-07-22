@@ -62,8 +62,8 @@
 
 
     <!-- state JS  -->
-        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-        <script src="/js/supabase.js"></script>
+           <script type="module" src="/js/article-stats.js">
+</script>
 <meta name="generator" content="Hexo 8.1.2"></head>
 
 
@@ -229,35 +229,32 @@
 
 <div class="article-stats">
 
-    <p><span class="stat-item">
-        阅读量： <span id="views-count">0</span>
-        </span>
-    </p>
-    <div class="article-actions">
-      <button 
-        class="action-button like-button"
-        id="like-button"
-        type="button">
+    <span>
+        阅读：
+        <b id="views-count">0</b>
+    </span>
 
-        ♡ 
-        <span id="likes-count">0</span>
 
+    <span>
+        点赞：
+        <b id="likes-count">0</b>
+    </span>
+
+
+    <span>
+        收藏：
+        <b id="favorites-count">0</b>
+    </span>
+
+
+    <button id="like-button">
+        ♡
     </button>
 
 
-
-    <button 
-        class="action-button favorite-button"
-        id="favorite-button"
-        type="button">
-
-        ☆ 
-        <span id="favorite-text">
-            收藏
-        </span>
-
+    <button id="favorite-button">
+        ☆
     </button>
-    </div>
 
 
 </div>
@@ -265,368 +262,8 @@
 
 <script>
 
-(function(){
-
-
-/*
- * Hexo文章信息
- */
-
-const articleId = "walden-translation-ch01pa01";
-
-const lang = "zh-cn";
-
-
-
-/*
- * Supabase客户端
- * 已经在 head.ejs 中初始化
- */
-
-const client = supabaseClient;
-
-
-
-/*
- * DOM
- */
-
-const viewsCount =
-document.getElementById(
-    "views-count"
-);
-
-
-const likesCount =
-document.getElementById(
-    "likes-count"
-);
-
-
-const likeButton =
-document.getElementById(
-    "like-button"
-);
-
-
-const favoriteButton =
-document.getElementById(
-    "favorite-button"
-);
-
-
-const favoriteText =
-document.getElementById(
-    "favorite-text"
-);
-
-
-
-/*
- =====================
- 阅读量
- =====================
-*/
-
-
-const viewKey =
-"viewed-" + articleId + "-" + lang;
-
-
-
-async function addView(){
-
-
-    const {error}=await client.rpc(
-        "increment_view",
-        {
-            p_article_id: articleId,
-            p_lang: lang
-        }
-    );
-
-
-    if(error){
-
-        console.log(
-            "view error:",
-            error
-        );
-
-    }
-
-}
-
-
-
-if(
-    !localStorage.getItem(viewKey)
-){
-
-    addView();
-
-
-    localStorage.setItem(
-        viewKey,
-        "true"
-    );
-
-}
-
-
-
-
-
-/*
- =====================
- 获取统计数据
- =====================
-*/
-
-
-async function loadStats(){
-
-
-    const {data,error}=await client
-        .from("article_stats")
-        .select(
-            "views,likes"
-        )
-        .eq(
-            "article_id",
-            articleId
-        )
-        .eq(
-            "lang",
-            lang
-        )
-        .maybeSingle();
-
-
-
-    if(error){
-
-        console.log(
-            "load stats error:",
-            error
-        );
-
-        return;
-
-    }
-
-
-
-    if(data){
-
-
-        viewsCount.innerHTML =
-            data.views;
-
-
-        likesCount.innerHTML =
-            data.likes;
-
-
-    }
-
-
-}
-
-
-
-loadStats();
-
-
-
-
-/*
- =====================
- 点赞
- =====================
-*/
-
-
-const likeKey =
-"liked-" + articleId + "-" + lang;
-
-
-
-if(
-    localStorage.getItem(likeKey)
-){
-
-    likeButton.classList.add(
-        "liked"
-    );
-
-}
-
-
-
-
-likeButton.onclick =
-async function(){
-
-
-
-    if(
-        localStorage.getItem(likeKey)
-    ){
-
-        return;
-
-    }
-
-
-
-    const {error}=await client.rpc(
-
-        "increment_like",
-
-        {
-             p_article_id: articleId,
-             p_lang: lang,
-             p_url: window.location.pathname
-        }
-
-    );
-
-
-
-    if(error){
-
-        console.log(
-            "like error:",
-            error
-        );
-
-        return;
-
-    }
-
-
-
-    localStorage.setItem(
-        likeKey,
-        "true"
-    );
-
-
-
-    likeButton.classList.add(
-        "liked"
-    );
-
-
-
-    loadStats();
-
-
-};
-
-
-
-
-
-/*
- =====================
- 收藏
- =====================
-*/
-
-
-const favoriteKey =
-"favorite-" + articleId + "-" + lang;
-
-
-
-function checkFavorite(){
-
-
-    if(
-        localStorage.getItem(
-            favoriteKey
-        )
-    ){
-
-        favoriteText.innerHTML =
-        "已收藏";
-
-
-        favoriteButton.classList.add(
-            "favorited"
-        );
-
-    }
-
-}
-
-
-
-checkFavorite();
-
-
-
-
-
-favoriteButton.onclick =
-function(){
-
-
-
-    if(
-        localStorage.getItem(
-            favoriteKey
-        )
-    ){
-
-
-        localStorage.removeItem(
-            favoriteKey
-        );
-
-
-        favoriteText.innerHTML =
-        "收藏";
-
-
-        favoriteButton.classList.remove(
-            "favorited"
-        );
-
-
-    }
-
-    else{
-
-
-        localStorage.setItem(
-            favoriteKey,
-            "true"
-        );
-
-
-        favoriteText.innerHTML =
-        "已收藏";
-
-
-        favoriteButton.classList.add(
-            "favorited"
-        );
-
-
-    }
-
-
-
-};
-
-
-
-
-
-})();
+window.articleId =
+"walden-translation-ch01pa01";
 
 </script>
 
@@ -806,7 +443,9 @@ function(){
 
   
   <script src="https://hypothes.is/embed.js" async></script>
+  
 
+<script type="module" src="/js/article-stats.js"></script>
 
 
 
