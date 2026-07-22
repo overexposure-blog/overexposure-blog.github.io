@@ -2,7 +2,6 @@ import { supabaseClient }
 from './supabase.js';
 
 
-
 // =======================
 // 当前文章信息
 // =======================
@@ -19,6 +18,7 @@ const articleLang = window.articleLang;
 
 function getVisitorId(){
 
+
     let id =
     localStorage.getItem(
         'visitor_id'
@@ -27,7 +27,9 @@ function getVisitorId(){
 
     if(!id){
 
-        id = crypto.randomUUID();
+
+        id =
+        crypto.randomUUID();
 
 
         localStorage.setItem(
@@ -58,21 +60,26 @@ async function loadStats(){
         error
     } = await supabaseClient
 
+
     .from('article_stats')
+
 
     .select(
         'views,likes,favorites'
     )
+
 
     .eq(
         'article_id',
         articleId
     )
 
+
     .eq(
         'lang',
         articleLang
     )
+
 
     .maybeSingle();
 
@@ -94,23 +101,39 @@ async function loadStats(){
     if(data){
 
 
-        document
-        .querySelector('#views-count')
-        .textContent =
+        const views =
+        document.querySelector(
+            '#views-count'
+        );
+
+
+        const likes =
+        document.querySelector(
+            '#likes-count'
+        );
+
+
+        const favorites =
+        document.querySelector(
+            '#favorites-count'
+        );
+
+
+
+        if(views)
+        views.textContent =
         data.views;
 
 
 
-        document
-        .querySelector('#likes-count')
-        .textContent =
+        if(likes)
+        likes.textContent =
         data.likes;
 
 
 
-        document
-        .querySelector('#favorites-count')
-        .textContent =
+        if(favorites)
+        favorites.textContent =
         data.favorites;
 
 
@@ -156,6 +179,7 @@ async function addView(){
 
     }
 
+
 }
 
 
@@ -163,7 +187,7 @@ async function addView(){
 
 
 // =======================
-// 点赞切换
+// 点赞 / 取消点赞
 // =======================
 
 async function toggleLike(){
@@ -195,6 +219,7 @@ async function toggleLike(){
 
     if(error){
 
+
         console.error(
             '点赞失败:',
             error
@@ -209,7 +234,8 @@ async function toggleLike(){
     updateLikeButton(data);
 
 
-    loadStats();
+    await loadStats();
+
 
 }
 
@@ -218,7 +244,7 @@ async function toggleLike(){
 
 
 // =======================
-// 收藏切换
+// 收藏 / 取消收藏
 // =======================
 
 async function toggleFavorite(){
@@ -250,10 +276,12 @@ async function toggleFavorite(){
 
     if(error){
 
+
         console.error(
             '收藏失败:',
             error
         );
+
 
         return;
 
@@ -264,7 +292,8 @@ async function toggleFavorite(){
     updateFavoriteButton(data);
 
 
-    loadStats();
+    await loadStats();
+
 
 }
 
@@ -273,7 +302,7 @@ async function toggleFavorite(){
 
 
 // =======================
-// 检查当前用户状态
+// 获取当前用户状态
 // =======================
 
 async function loadActionStatus(){
@@ -291,9 +320,9 @@ async function loadActionStatus(){
 
         {
 
-            aid:articleId,
+            aid: articleId,
 
-            alang:articleLang,
+            alang: articleLang,
 
             vid:getVisitorId()
 
@@ -305,10 +334,12 @@ async function loadActionStatus(){
 
     if(error){
 
+
         console.error(
-            '获取状态失败:',
+            '状态读取失败:',
             error
         );
+
 
         return;
 
@@ -328,6 +359,7 @@ async function loadActionStatus(){
             data.favorited
         );
 
+
     }
 
 
@@ -344,13 +376,13 @@ async function loadActionStatus(){
 function updateLikeButton(active){
 
 
-    const btn =
+    const button =
     document.querySelector(
         '#like-button'
     );
 
 
-    if(!btn)
+    if(!button)
     return;
 
 
@@ -358,29 +390,30 @@ function updateLikeButton(active){
     if(active){
 
 
-        btn.classList.add(
+        button.classList.add(
             'liked'
         );
 
 
-        btn.innerHTML =
-        '♥ 已点赞';
+        button.innerHTML =
+        '♥ 已赞';
 
 
-    }
-    else{
+
+    }else{
 
 
-        btn.classList.remove(
+        button.classList.remove(
             'liked'
         );
 
 
-        btn.innerHTML =
+        button.innerHTML =
         '♡ 点赞';
 
 
     }
+
 
 }
 
@@ -395,13 +428,13 @@ function updateLikeButton(active){
 function updateFavoriteButton(active){
 
 
-    const btn =
+    const button =
     document.querySelector(
         '#favorite-button'
     );
 
 
-    if(!btn)
+    if(!button)
     return;
 
 
@@ -409,25 +442,25 @@ function updateFavoriteButton(active){
     if(active){
 
 
-        btn.classList.add(
+        button.classList.add(
             'favorited'
         );
 
 
-        btn.innerHTML =
+        button.innerHTML =
         '★ 已收藏';
 
 
-    }
-    else{
+
+    }else{
 
 
-        btn.classList.remove(
+        button.classList.remove(
             'favorited'
         );
 
 
-        btn.innerHTML =
+        button.innerHTML =
         '☆ 收藏';
 
 
@@ -448,9 +481,11 @@ async function init(){
 
     if(!articleId || !articleLang){
 
+
         console.error(
             '缺少 article_id 或 lang'
         );
+
 
         return;
 
@@ -482,7 +517,7 @@ async function init(){
 
 
 // =======================
-// DOM事件
+// 事件绑定
 // =======================
 
 document.addEventListener(
