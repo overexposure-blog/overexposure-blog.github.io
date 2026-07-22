@@ -3263,27 +3263,100 @@
     word-break: break-all;
 }
 
-
 .post-copyright p {
     margin: 5px 0;
 }
-.post-like{
+
+.article-stats{
+
+    margin:30px 0;
+
     text-align:center;
-    margin:40px 0;
+
 }
 
 
-#like-button{
-    background:none;
+
+/* 阅读量 */
+
+.views-count{
+
+    font-size:13px;
+
+    color:#999;
+
+    margin-bottom:18px;
+
+}
+
+
+
+/* 按钮容器 */
+
+.article-actions{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+}
+
+
+
+/* 按钮 */
+
+.action-button{
+
+    background:#fff;
+
     border:1px solid #ddd;
-    padding:8px 28px;
-    font-size:14px;
+
+    border-radius:20px;
+
+    padding:7px 22px;
+
+    font-size:18px;
+
+    color:#666;
+
     cursor:pointer;
-    color:#555;
+
+    transition:.2s;
+
 }
 
 
-#like-button.liked{
-    color:#a33;
-    border-color:#a33;
+
+.action-button:hover{
+
+    border-color:#888;
+
+    color:#333;
+
+}
+
+
+
+/* 已点赞 */
+
+.action-button.liked{
+
+    color:#b34;
+
+    border-color:#b34;
+
+}
+
+
+
+/* 已收藏 */
+
+.action-button.favorited{
+
+    color:#b8860b;
+
+    border-color:#b8860b;
+
 }
