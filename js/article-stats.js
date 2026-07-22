@@ -227,11 +227,8 @@ async function toggleFavorite(){
 
 
     const {
-
         data,
-
         error
-
     } = await supabaseClient.rpc(
 
         'toggle_favorite',
@@ -249,7 +246,6 @@ async function toggleFavorite(){
     );
 
 
-
     if(error){
 
         console.error(
@@ -263,7 +259,19 @@ async function toggleFavorite(){
 
 
 
+    // 更新按钮状态
+
     updateFavoriteButton(data);
+
+
+
+    // data=true 表示刚刚收藏
+    if(data){
+
+        addBrowserBookmark();
+
+    }
+
 
 
     await loadStats();
@@ -272,8 +280,73 @@ async function toggleFavorite(){
 }
 
 
+// =======================
+// 添加浏览器收藏夹
+// =======================
+
+function addBrowserBookmark(){
 
 
+    const title =
+    document.title;
+
+
+    const url =
+    window.location.href;
+
+
+
+    // IE旧版支持
+    if(
+        window.external &&
+        'AddFavorite' in window.external
+    ){
+
+        window.external.AddFavorite(
+            url,
+            title
+        );
+
+        return;
+
+    }
+
+
+
+    // Firefox旧版支持
+    if(
+        window.sidebar &&
+        window.sidebar.addPanel
+    ){
+
+        window.sidebar.addPanel(
+            title,
+            url,
+            ''
+        );
+
+        return;
+
+    }
+
+
+
+    // Chrome / Edge / Safari
+
+    alert(
+`文章已加入站内收藏！
+
+如需加入浏览器收藏夹：
+
+Windows / Linux:
+Ctrl + D
+
+Mac:
+⌘ + D`
+    );
+
+
+}
 
 // =======================
 // 获取当前用户操作状态
