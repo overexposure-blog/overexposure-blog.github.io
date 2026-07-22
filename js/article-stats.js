@@ -27,9 +27,7 @@ function getVisitorId(){
 
     if(!id){
 
-
-        id =
-        crypto.randomUUID();
+        id = crypto.randomUUID();
 
 
         localStorage.setItem(
@@ -60,26 +58,21 @@ async function loadStats(){
         error
     } = await supabaseClient
 
-
     .from('article_stats')
-
 
     .select(
         'views,likes,favorites'
     )
-
 
     .eq(
         'article_id',
         articleId
     )
 
-
     .eq(
         'lang',
         articleLang
     )
-
 
     .maybeSingle();
 
@@ -101,39 +94,23 @@ async function loadStats(){
     if(data){
 
 
-        const views =
         document.querySelector(
             '#views-count'
-        );
-
-
-        const likes =
-        document.querySelector(
-            '#likes-count'
-        );
-
-
-        const favorites =
-        document.querySelector(
-            '#favorites-count'
-        );
-
-
-
-        if(views)
-        views.textContent =
+        ).textContent =
         data.views;
 
 
 
-        if(likes)
-        likes.textContent =
+        document.querySelector(
+            '#likes-count'
+        ).textContent =
         data.likes;
 
 
 
-        if(favorites)
-        favorites.textContent =
+        document.querySelector(
+            '#favorites-count'
+        ).textContent =
         data.favorites;
 
 
@@ -160,9 +137,9 @@ async function addView(){
 
         {
 
-            aid: articleId,
+            p_article_id: articleId,
 
-            alang: articleLang
+            p_lang: articleLang
 
         }
 
@@ -219,7 +196,6 @@ async function toggleLike(){
 
     if(error){
 
-
         console.error(
             '点赞失败:',
             error
@@ -262,11 +238,11 @@ async function toggleFavorite(){
 
         {
 
-             p_article_id: articleId,
+            p_article_id: articleId,
 
-        p_lang: articleLang,
+            p_lang: articleLang,
 
-        p_visitor_id: getVisitorId()
+            p_visitor_id: getVisitorId()
 
         }
 
@@ -276,12 +252,10 @@ async function toggleFavorite(){
 
     if(error){
 
-
         console.error(
             '收藏失败:',
             error
         );
-
 
         return;
 
@@ -302,7 +276,7 @@ async function toggleFavorite(){
 
 
 // =======================
-// 获取当前用户状态
+// 获取当前用户操作状态
 // =======================
 
 async function loadActionStatus(){
@@ -324,7 +298,7 @@ async function loadActionStatus(){
 
             p_lang: articleLang,
 
-            vid:getVisitorId()
+            p_visitor_id: getVisitorId()
 
         }
 
@@ -334,12 +308,10 @@ async function loadActionStatus(){
 
     if(error){
 
-
         console.error(
             '状态读取失败:',
             error
         );
-
 
         return;
 
@@ -399,8 +371,8 @@ function updateLikeButton(active){
         '♥ 已赞';
 
 
-
-    }else{
+    }
+    else{
 
 
         button.classList.remove(
@@ -451,8 +423,8 @@ function updateFavoriteButton(active){
         '★ 已收藏';
 
 
-
-    }else{
+    }
+    else{
 
 
         button.classList.remove(
@@ -465,6 +437,7 @@ function updateFavoriteButton(active){
 
 
     }
+
 
 }
 
