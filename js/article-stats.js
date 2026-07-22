@@ -1,4 +1,4 @@
-import { supabase }
+import { supabaseClient }
 from './supabase.js';
 
 
@@ -87,7 +87,7 @@ async function addView(){
 
         error
 
-    } = await supabase.rpc(
+    } = await supabaseClient.rpc(
 
         'add_view',
 
@@ -124,7 +124,7 @@ async function addLike(){
 
         error
 
-    } = await supabase.rpc(
+    } = await supabaseClient.rpc(
 
         'add_like',
 
@@ -167,7 +167,7 @@ async function addFavorite(){
 
         error
 
-    } = await supabase.rpc(
+    } = await supabaseClient.rpc(
 
         'add_favorite',
 

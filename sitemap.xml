@@ -215,6 +215,13 @@
   </url>
   
   <url>
+    <loc>https://blog.overexposure.media/tags/essay/</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.overexposure.media/tags/solitude/</loc>
     <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
@@ -244,13 +251,6 @@
   
   <url>
     <loc>https://blog.overexposure.media/tags/unconquerable-spirit/</loc>
-    <lastmod>2026-07-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.overexposure.media/tags/essay/</loc>
     <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
