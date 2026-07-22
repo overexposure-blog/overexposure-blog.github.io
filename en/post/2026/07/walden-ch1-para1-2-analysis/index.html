@@ -42,7 +42,7 @@
 
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/main.css?v=20267345">
+    <link rel="stylesheet" href="/css/main.css?v=2026734533">
 
     <!--[if lt IE 8]>
         
@@ -253,82 +253,234 @@
 
 <div class="post-like">
 
-<button id="like-button">
-    ♡ <span id="like-count">0</span>
-</button>
+    <button id="like-button">
+        ♡ <span id="like-count">0</span>
+    </button>
 
 </div>
 
 
 <script>
 
-const supabaseClient = supabase.createClient(
-    '你的SUPABASE_URL',
-    '你的ANON_KEY'
+(function(){
+
+
+/*
+ * 当前文章唯一标识
+ * 多语言情况下：
+ * /zh-cn/walden/
+ * /en/walden/
+ * 会自动区分
+ */
+
+const articleId = "en/post/2026/07/walden-ch1-para1-2-analysis/";
+
+
+// localStorage key
+
+const likeKey = "liked-" + articleId;
+
+
+
+// Supabase 配置
+
+const SUPABASE_URL = "你的_SUPABASE_URL";
+
+const SUPABASE_KEY = "你的_ANON_KEY";
+
+
+// 创建客户端
+
+const client = supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
 );
 
 
-const articleUrl =
-"/en/post/2026/07/walden-ch1-para1-2-analysis/";
+
+const button =
+document.getElementById(
+    "like-button"
+);
 
 
-// 获取点赞
-
-async function getLikes(){
-
-
-let {data,error}=await supabaseClient
-.from('article_stats')
-.select('likes')
-.eq('url',articleUrl)
-.single();
+const count =
+document.getElementById(
+    "like-count"
+);
 
 
-if(data){
 
-document
-.getElementById('like-count')
-.innerHTML=data.likes;
+// --------------------
+// 获取点赞数量
+// --------------------
+
+async function loadLikes(){
+
+
+    let {data,error} = await client
+        .from("article_stats")
+        .select("likes")
+        .eq("url", articleId)
+        .single();
+
+
+
+    if(error){
+
+        console.log(error);
+
+        return;
+
+    }
+
+
+    if(data){
+
+        count.innerHTML =
+        data.likes;
+
+    }
+
 
 }
 
-}
-
-
-getLikes();
 
 
 
-// 点赞
+// --------------------
+// 点击点赞
+// --------------------
 
-document
-.getElementById('like-button')
-.onclick=async()=>{
-
-
-let {data}=await supabaseClient
-.from('article_stats')
-.select('likes')
-.eq('url',articleUrl)
-.single();
+button.onclick = async function(){
 
 
+    // 已经点赞
 
-await supabaseClient
-.from('article_stats')
-.update({
-likes:data.likes+1
-})
-.eq('url',articleUrl);
+    if(
+        localStorage.getItem(likeKey)
+    ){
+
+        return;
+
+    }
 
 
 
-document
-.getElementById('like-count')
-.innerHTML=data.likes+1;
+    // 查询当前数量
+
+    let {data,error}=await client
+        .from("article_stats")
+        .select("likes")
+        .eq("url",articleId)
+        .single();
+
+
+
+    if(error || !data){
+
+        console.log(error);
+
+        return;
+
+    }
+
+
+
+    // 增加点赞
+
+    let newLikes =
+        data.likes + 1;
+
+
+
+    let result =
+    await client
+        .from("article_stats")
+        .update({
+            likes:newLikes
+        })
+        .eq(
+            "url",
+            articleId
+        );
+
+
+
+    if(result.error){
+
+        console.log(
+            result.error
+        );
+
+        return;
+
+    }
+
+
+
+    // 保存本地状态
+
+    localStorage.setItem(
+        likeKey,
+        "true"
+    );
+
+
+
+    // 更新显示
+
+    count.innerHTML =
+    newLikes;
+
+
+
+    // 改变按钮状态
+
+    button.classList.add(
+        "liked"
+    );
+
+
+    button.innerHTML =
+    "♥ " + newLikes;
+
+
+
+    button.disabled=true;
 
 
 };
+
+
+
+
+// --------------------
+// 页面初始化
+// --------------------
+
+loadLikes();
+
+
+
+// 检查是否点赞
+
+if(
+    localStorage.getItem(likeKey)
+){
+
+    button.classList.add(
+        "liked"
+    );
+
+
+    button.disabled=true;
+
+}
+
+
+
+})();
 
 
 </script>

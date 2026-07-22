@@ -3268,37 +3268,22 @@
     margin: 5px 0;
 }
 .post-like{
-
-text-align:center;
-
-margin:50px 0;
-
+    text-align:center;
+    margin:40px 0;
 }
 
 
 #like-button{
-
-background:none;
-
-border:1px solid #ddd;
-
-padding:8px 30px;
-
-font-size:14px;
-
-letter-spacing:1px;
-
-color:#666;
-
-cursor:pointer;
-
+    background:none;
+    border:1px solid #ddd;
+    padding:8px 28px;
+    font-size:14px;
+    cursor:pointer;
+    color:#555;
 }
 
 
-#like-button:hover{
-
-border-color:#222;
-
-color:#111;
-
+#like-button.liked{
+    color:#a33;
+    border-color:#a33;
 }
