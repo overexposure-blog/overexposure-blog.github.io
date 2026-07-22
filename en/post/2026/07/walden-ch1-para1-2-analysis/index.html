@@ -58,9 +58,11 @@
 
 
     <!-- Google Analytics -->
-    
+        
 
 
+    <!-- Like  -->
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <meta name="generator" content="Hexo 8.1.2"></head>
 
 
@@ -221,6 +223,115 @@
     
 </div>
 
+
+<div class="post-copyright">
+    <div class="copyright-title">
+        © Copyright
+    </div>
+
+    <p>
+       本文版权归 
+        <strong>byterain</strong>
+        所有。
+    </p>
+
+    <p>
+        未经作者同意，禁止以任何形式复制、转载或演绎。
+    </p>
+
+    <p>
+        如需转载或引用，请联系作者并获得授权。
+    </p>
+
+    <p class="copyright-url">
+        原文链接：
+        <a href="https://blog.overexposure.media/en/post/2026/07/walden-ch1-para1-2-analysis/">
+            https://blog.overexposure.media/en/post/2026/07/walden-ch1-para1-2-analysis/
+        </a>
+    </p>
+</div>
+
+<div class="post-like">
+
+<button id="like-button">
+    ♡ <span id="like-count">0</span>
+</button>
+
+</div>
+
+
+<script>
+
+const supabaseClient = supabase.createClient(
+    '你的SUPABASE_URL',
+    '你的ANON_KEY'
+);
+
+
+const articleUrl =
+"/en/post/2026/07/walden-ch1-para1-2-analysis/";
+
+
+// 获取点赞
+
+async function getLikes(){
+
+
+let {data,error}=await supabaseClient
+.from('article_stats')
+.select('likes')
+.eq('url',articleUrl)
+.single();
+
+
+if(data){
+
+document
+.getElementById('like-count')
+.innerHTML=data.likes;
+
+}
+
+}
+
+
+getLikes();
+
+
+
+// 点赞
+
+document
+.getElementById('like-button')
+.onclick=async()=>{
+
+
+let {data}=await supabaseClient
+.from('article_stats')
+.select('likes')
+.eq('url',articleUrl)
+.single();
+
+
+
+await supabaseClient
+.from('article_stats')
+.update({
+likes:data.likes+1
+})
+.eq('url',articleUrl);
+
+
+
+document
+.getElementById('like-count')
+.innerHTML=data.likes+1;
+
+
+};
+
+
+</script>
 
 <!-- Related Posts -->
 

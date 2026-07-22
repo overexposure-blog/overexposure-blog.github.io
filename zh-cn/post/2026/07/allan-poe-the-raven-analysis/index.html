@@ -58,9 +58,11 @@
 
 
     <!-- Google Analytics -->
-    
+        
 
 
+    <!-- Like  -->
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <meta name="generator" content="Hexo 8.1.2"></head>
 
 
@@ -302,34 +304,118 @@
 </div>
 
 
+<div class="post-copyright">
+    <div class="copyright-title">
+        © Copyright
+    </div>
+
+    <p>
+       本文版权归 
+        <strong>byterain</strong>
+        所有。
+    </p>
+
+    <p>
+        未经作者同意，禁止以任何形式复制、转载或演绎。
+    </p>
+
+    <p>
+        如需转载或引用，请联系作者并获得授权。
+    </p>
+
+    <p class="copyright-url">
+        原文链接：
+        <a href="https://blog.overexposure.media/zh-cn/post/2026/07/allan-poe-the-raven-analysis/">
+            https://blog.overexposure.media/zh-cn/post/2026/07/allan-poe-the-raven-analysis/
+        </a>
+    </p>
+</div>
+
+<div class="post-like">
+
+<button id="like-button">
+    ♡ <span id="like-count">0</span>
+</button>
+
+</div>
+
+
+<script>
+
+const supabaseClient = supabase.createClient(
+    '你的SUPABASE_URL',
+    '你的ANON_KEY'
+);
+
+
+const articleUrl =
+"/zh-cn/post/2026/07/allan-poe-the-raven-analysis/";
+
+
+// 获取点赞
+
+async function getLikes(){
+
+
+let {data,error}=await supabaseClient
+.from('article_stats')
+.select('likes')
+.eq('url',articleUrl)
+.single();
+
+
+if(data){
+
+document
+.getElementById('like-count')
+.innerHTML=data.likes;
+
+}
+
+}
+
+
+getLikes();
+
+
+
+// 点赞
+
+document
+.getElementById('like-button')
+.onclick=async()=>{
+
+
+let {data}=await supabaseClient
+.from('article_stats')
+.select('likes')
+.eq('url',articleUrl)
+.single();
+
+
+
+await supabaseClient
+.from('article_stats')
+.update({
+likes:data.likes+1
+})
+.eq('url',articleUrl);
+
+
+
+document
+.getElementById('like-count')
+.innerHTML=data.likes+1;
+
+
+};
+
+
+</script>
+
 <!-- Related Posts -->
 
 
-
-
-
-<div class="author-related-posts">
-
-<h3>
-  相关文章
-</h3>
-
-
-<ul>
-
-
-
-<li>
-<a href="/zh-cn/post/2026/07/allan-poe-alone-analysis/">
-  文学赏析|爱伦坡《独自Alone》翻译与深度解析
-</a>
-</li>
-
-
-
-</ul>
-
-</div>
 
 
 
