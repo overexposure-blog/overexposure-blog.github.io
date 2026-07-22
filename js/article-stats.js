@@ -3,28 +3,27 @@ from './supabase.js';
 
 
 
-const articleId =
-window.articleId;
+const articleId = window.articleId;
 
 
 
-// ==========================
+// =======================
 // 获取统计数据
-// ==========================
+// =======================
 
 async function loadStats(){
 
 
     const {
-
         data,
         error
-
-    } = await supabase
+    } = await supabaseClient
 
     .from('article_stats')
 
-    .select('*')
+    .select(
+        'views,likes,favorites'
+    )
 
     .eq(
         'article_id',
@@ -37,7 +36,10 @@ async function loadStats(){
 
     if(error){
 
-        console.log(error);
+        console.error(
+            '读取统计失败:',
+            error
+        );
 
         return;
 
@@ -76,25 +78,21 @@ async function loadStats(){
 
 
 
-// ==========================
+// =======================
 // 阅读量 +1
-// ==========================
+// =======================
 
 async function addView(){
 
 
     const {
-
         error
-
     } = await supabaseClient.rpc(
 
         'add_view',
 
         {
-
-            aid:articleId
-
+            aid: articleId
         }
 
     );
@@ -103,7 +101,10 @@ async function addView(){
 
     if(error){
 
-        console.log(error);
+        console.error(
+            '阅读量增加失败:',
+            error
+        );
 
     }
 
@@ -113,25 +114,21 @@ async function addView(){
 
 
 
-// ==========================
+// =======================
 // 点赞
-// ==========================
+// =======================
 
 async function addLike(){
 
 
     const {
-
         error
-
     } = await supabaseClient.rpc(
 
         'add_like',
 
         {
-
-            aid:articleId
-
+            aid: articleId
         }
 
     );
@@ -140,15 +137,18 @@ async function addLike(){
 
     if(error){
 
-        console.log(error);
+        console.error(
+            '点赞失败:',
+            error
+        );
 
         return;
 
     }
 
 
-    loadStats();
 
+    loadStats();
 
 }
 
@@ -156,37 +156,38 @@ async function addLike(){
 
 
 
-// ==========================
+// =======================
 // 收藏
-// ==========================
+// =======================
 
 async function addFavorite(){
 
 
     const {
-
         error
-
     } = await supabaseClient.rpc(
 
         'add_favorite',
 
         {
-
-            aid:articleId
-
+            aid: articleId
         }
 
     );
 
 
+
     if(error){
 
-        console.log(error);
+        console.error(
+            '收藏失败:',
+            error
+        );
 
         return;
 
     }
+
 
 
     loadStats();
@@ -197,42 +198,29 @@ async function addFavorite(){
 
 
 
-// ==========================
-// 绑定按钮
-// ==========================
-
-document
-.querySelector('#like-button')
-?.addEventListener(
-    'click',
-    addLike
-);
-
-
-
-document
-.querySelector('#favorite-button')
-?.addEventListener(
-    'click',
-    addFavorite
-);
-
-
-
-
-
-// ==========================
-// 页面初始化
-// ==========================
+// =======================
+// 初始化
+// =======================
 
 async function init(){
 
 
     if(!articleId){
 
+        console.error(
+            'article_id不存在'
+        );
+
         return;
 
     }
+
+
+
+    console.log(
+        'article:',
+        articleId
+    );
 
 
 
@@ -246,4 +234,36 @@ async function init(){
 
 
 
-init();
+
+
+// =======================
+// 绑定事件
+// =======================
+
+document.addEventListener(
+'DOMContentLoaded',
+()=>{
+
+
+    document
+    .querySelector('#like-button')
+    ?.addEventListener(
+        'click',
+        addLike
+    );
+
+
+
+    document
+    .querySelector('#favorite-button')
+    ?.addEventListener(
+        'click',
+        addFavorite
+    );
+
+
+
+    init();
+
+
+});
