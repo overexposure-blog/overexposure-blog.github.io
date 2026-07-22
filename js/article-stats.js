@@ -322,7 +322,7 @@ async function loadActionStatus(){
 
             p_article_id: articleId,
 
-            p_lang: articleLang
+            p_lang: articleLang,
 
             vid:getVisitorId()
 
