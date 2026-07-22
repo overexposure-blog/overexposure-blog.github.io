@@ -3360,3 +3360,16 @@
     border-color:#b8860b;
 
 }
+
+#like-button.liked{
+
+    color:red;
+
+}
+
+
+#favorite-button.favorited{
+
+    color:#e6a700;
+
+}
