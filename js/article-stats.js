@@ -427,7 +427,7 @@ function updateLikeButton(active){
 
 
         button.innerHTML =
-        '♡';
+        '❤';
 
 
     }

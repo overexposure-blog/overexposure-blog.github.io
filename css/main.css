@@ -3339,40 +3339,8 @@
 
 
 
-/* 已点赞 */
-
-.action-button.liked{
-
-    color:#b34;
-
-    border-color:#b34;
-
-}
 
 
-
-/* 已收藏 */
-
-.action-button.favorited{
-
-    color:#b8860b;
-
-    border-color:#b8860b;
-
-}
-
-#like-button.liked{
-
-    color:red;
-
-}
-
-
-#favorite-button.favorited{
-
-    color:#e6a700;
-
-}
 .article-stats {
 
     width:100%;
@@ -3382,14 +3350,23 @@
 
 .stats-info {
 
-    text-align:left;
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:1em;
+
+    margin-bottom:0.5em;
+
 
 }
 
 
 .stat-item {
 
-    margin:0.5em 0;
+    font-size:0.95em;
 
 }
 
@@ -3397,14 +3374,21 @@
 
 .stats-action {
 
-    text-align:center;
+    width:100%;
 
-    margin-top:1.5em;
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin-top:0.5em;
 
 }
 
 
 .like-button {
+	text-align: center;
 
     width:56px;
 
@@ -3444,10 +3428,8 @@
 
 .like-button.liked {
 
-    background:#e74c3c;
-
     border-color:#e74c3c;
 
-    color:#fff;
+    color:#e74c3c;
 
 }
