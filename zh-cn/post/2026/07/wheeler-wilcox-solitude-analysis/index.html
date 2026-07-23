@@ -42,7 +42,7 @@
 
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/main.css?v=20267366">
+    <link rel="stylesheet" href="/css/main.css?v=2027366">
 
     <!--[if lt IE 8]>
         
@@ -61,8 +61,7 @@
         
 
 
-    <!-- state JS  -->
-           <script type="module" src="/js/article-stats.js">
+
 </script>
 <meta name="generator" content="Hexo 8.1.2"></head>
 
@@ -93,7 +92,9 @@
 		<div id="main">
 
       <!-- Main Content -->
-      <!-- One -->
+      
+           
+<!-- One -->
 
 
 
@@ -256,43 +257,51 @@
 
 <div class="article-stats">
 
-    <span>
-        阅读：
-        <b id="views-count">0</b>
-    </span>
+
+    <div class="stats-info">
+
+        <p class="stat-item">
+
+            阅读量：
+            <span id="views-count">
+                0
+            </span>
+
+        </p>
 
 
-    <span>
-        点赞：
-        <b id="likes-count">0</b>
-    </span>
+        <p class="stat-item">
+
+            点赞：
+            <span id="likes-count">
+                0
+            </span>
+
+        </p>
 
 
-    <span>
-        收藏：
-        <b id="favorites-count">0</b>
-    </span>
+    </div>
 
 
-    <button id="like-button">
-♡ 点赞
-</button>
 
+    <div class="stats-action">
 
-<button id="favorite-button">
-☆ 收藏
-</button>
+        <button
+
+            class="action-button like-button"
+
+            id="like-button"
+
+            type="button">
+
+            ♡
+
+        </button>
+
+    </div>
 
 
 </div>
-
-
-<script>
-
-window.articleId ="wheeler-wilcox-solitude-analysis";
-window.articleLang = "zh-cn";
-
-</script>
 
 <div class="post-copyright">
     <div class="copyright-title">
@@ -341,6 +350,20 @@ window.articleLang = "zh-cn";
 </div>
 
 </section>
+
+
+<script>
+
+window.articleId =
+"wheeler-wilcox-solitude-analysis";
+
+window.articleLang =
+"zh-cn";
+
+</script>
+    
+<!-- state JS  -->
+    <script type="module" src="/js/article-stats.js"></script>
 
 
       <!-- Three - the contact form is on every page! 

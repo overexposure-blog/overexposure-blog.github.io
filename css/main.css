@@ -3373,3 +3373,81 @@
     color:#e6a700;
 
 }
+.article-stats {
+
+    width:100%;
+
+}
+
+
+.stats-info {
+
+    text-align:left;
+
+}
+
+
+.stat-item {
+
+    margin:0.5em 0;
+
+}
+
+
+
+.stats-action {
+
+    text-align:center;
+
+    margin-top:1.5em;
+
+}
+
+
+.like-button {
+
+    width:56px;
+
+    height:56px;
+
+    border-radius:50%;
+
+    border:1px solid #ddd;
+
+    background:#fff;
+
+    color:#555;
+
+    font-size:24px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+    transition:all .25s ease;
+
+}
+
+
+.like-button:hover {
+
+    transform:scale(1.05);
+
+}
+
+
+/* 已点赞 */
+
+.like-button.liked {
+
+    background:#e74c3c;
+
+    border-color:#e74c3c;
+
+    color:#fff;
+
+}

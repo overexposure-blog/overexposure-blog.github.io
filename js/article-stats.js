@@ -3,7 +3,7 @@ from './supabase.js';
 
 
 // =======================
-// 当前文章信息 003 
+// 文章信息
 // =======================
 
 const articleId = window.articleId;
@@ -11,13 +11,18 @@ const articleId = window.articleId;
 const articleLang = window.articleLang;
 
 
+// =======================
+// 访问时间
+// =======================
+
+const startTime = Date.now();
+
 
 // =======================
-// 获取访客ID
+// 获取 visitor_id
 // =======================
 
 function getVisitorId(){
-
 
     let id =
     localStorage.getItem(
@@ -28,7 +33,6 @@ function getVisitorId(){
     if(!id){
 
         id = crypto.randomUUID();
-
 
         localStorage.setItem(
             'visitor_id',
@@ -43,78 +47,93 @@ function getVisitorId(){
 }
 
 
-
-
-
 // =======================
-// 获取统计数据
+// 获取 session_id
 // =======================
 
-async function loadStats(){
+function getSessionId(){
+
+    let id =
+    sessionStorage.getItem(
+        'session_id'
+    );
 
 
-    const {
-        data,
-        error
-    } = await supabaseClient
+    if(!id){
 
-    .from('article_stats')
-
-    .select(
-        'views,likes,favorites'
-    )
-
-    .eq(
-        'article_id',
-        articleId
-    )
-
-    .eq(
-        'lang',
-        articleLang
-    )
-
-    .maybeSingle();
+        id = crypto.randomUUID();
 
 
-
-    if(error){
-
-        console.error(
-            '读取统计失败:',
-            error
+        sessionStorage.setItem(
+            'session_id',
+            id
         );
 
-        return;
+    }
+
+
+    return id;
+
+}
+
+
+
+const visitorId = getVisitorId();
+
+const sessionId = getSessionId();
+
+
+
+
+// =======================
+// 设备
+// =======================
+
+function getDevice(){
+
+    return /mobile/i.test(
+        navigator.userAgent
+    )
+    ?
+    'mobile'
+    :
+    'desktop';
+
+}
+
+
+// =======================
+// 来源
+// =======================
+
+function getSource(){
+
+    const ref =
+    document.referrer;
+
+
+    if(!ref){
+
+        return 'direct';
 
     }
 
 
+    if(ref.includes('google')){
 
-    if(data){
-
-
-        document.querySelector(
-            '#views-count'
-        ).textContent =
-        data.views;
-
-
-
-        document.querySelector(
-            '#likes-count'
-        ).textContent =
-        data.likes;
-
-
-
-        document.querySelector(
-            '#favorites-count'
-        ).textContent =
-        data.favorites;
-
+        return 'google';
 
     }
+
+
+    if(ref.includes('bing')){
+
+        return 'bing';
+
+    }
+
+
+    return 'external';
 
 }
 
@@ -123,7 +142,7 @@ async function loadStats(){
 
 
 // =======================
-// 阅读量 +1
+// 添加阅读 UV
 // =======================
 
 async function addView(){
@@ -139,18 +158,27 @@ async function addView(){
 
             p_article_id: articleId,
 
-            p_lang: articleLang
+            p_lang: articleLang,
+
+            p_visitor_id: visitorId,
+
+            p_session_id: sessionId,
+
+            p_device:
+            getDevice(),
+
+            p_source:
+            getSource()
 
         }
 
     );
 
 
-
     if(error){
 
         console.error(
-            '阅读量增加失败:',
+            'add_view失败:',
             error
         );
 
@@ -162,12 +190,99 @@ async function addView(){
 
 
 
+// =======================
+// 获取统计
+// =======================
+
+async function loadStats(){
+
+
+    const {
+
+        data,
+
+        error
+
+    } = await supabaseClient.rpc(
+
+        'get_article_stats',
+
+        {
+
+            p_article_id:
+            articleId,
+
+
+            p_lang:
+            articleLang
+
+        }
+
+    );
+
+
+
+    if(error){
+
+        console.error(
+            '统计读取失败:',
+            error
+        );
+
+        return;
+
+    }
+
+
+
+    if(data){
+
+
+        const views =
+        document.querySelector(
+            '#views-count'
+        );
+
+
+        const likes =
+        document.querySelector(
+            '#likes-count'
+        );
+
+
+
+        if(views){
+
+            views.textContent =
+            data.views || 0;
+
+        }
+
+
+
+        if(likes){
+
+            likes.textContent =
+            data.likes || 0;
+
+        }
+
+
+    }
+
+
+}
+
+
+
+
 
 // =======================
-// 点赞 / 取消点赞
+// 点赞
 // =======================
 
 async function toggleLike(){
+
 
 
     const {
@@ -182,11 +297,18 @@ async function toggleLike(){
 
         {
 
-            p_article_id: articleId,
 
-            p_lang: articleLang,
+            p_article_id:
+            articleId,
 
-            p_visitor_id: getVisitorId()
+
+            p_lang:
+            articleLang,
+
+
+            p_visitor_id:
+            visitorId
+
 
         }
 
@@ -220,136 +342,7 @@ async function toggleLike(){
 
 
 // =======================
-// 收藏 / 取消收藏
-// =======================
-
-async function toggleFavorite(){
-
-
-    const {
-        data,
-        error
-    } = await supabaseClient.rpc(
-
-        'toggle_favorite',
-
-        {
-
-            p_article_id: articleId,
-
-            p_lang: articleLang,
-
-            p_visitor_id: getVisitorId()
-
-        }
-
-    );
-
-
-    if(error){
-
-        console.error(
-            '收藏失败:',
-            error
-        );
-
-        return;
-
-    }
-
-
-
-    // 更新按钮状态
-
-    updateFavoriteButton(data);
-
-
-
-    // data=true 表示刚刚收藏
-    if(data){
-
-        addBrowserBookmark();
-
-    }
-
-
-
-    await loadStats();
-
-
-}
-
-
-// =======================
-// 添加浏览器收藏夹
-// =======================
-
-function addBrowserBookmark(){
-
-
-    const title =
-    document.title;
-
-
-    const url =
-    window.location.href;
-
-
-
-    // IE旧版支持
-    if(
-        window.external &&
-        'AddFavorite' in window.external
-    ){
-
-        window.external.AddFavorite(
-            url,
-            title
-        );
-
-        return;
-
-    }
-
-
-
-    // Firefox旧版支持
-    if(
-        window.sidebar &&
-        window.sidebar.addPanel
-    ){
-
-        window.sidebar.addPanel(
-            title,
-            url,
-            ''
-        );
-
-        return;
-
-    }
-
-
-
-    // Chrome / Edge / Safari
-
-    alert(
-`文章已加入站内收藏！
-
-如需加入浏览器收藏夹：
-
-Windows / Linux:
-Ctrl + D
-
-Mac:
-⌘ + D`
-    );
-
-
-}
-
-// =======================
-// 获取当前用户操作状态
+// 获取点赞状态
 // =======================
 
 async function loadActionStatus(){
@@ -367,11 +360,16 @@ async function loadActionStatus(){
 
         {
 
-            p_article_id: articleId,
+            p_article_id:
+            articleId,
 
-            p_lang: articleLang,
 
-            p_visitor_id: getVisitorId()
+            p_lang:
+            articleLang,
+
+
+            p_visitor_id:
+            visitorId
 
         }
 
@@ -392,20 +390,7 @@ async function loadActionStatus(){
 
 
 
-    if(data){
-
-
-        updateLikeButton(
-            data.liked
-        );
-
-
-        updateFavoriteButton(
-            data.favorited
-        );
-
-
-    }
+    updateLikeButton(data);
 
 
 }
@@ -427,6 +412,7 @@ function updateLikeButton(active){
     );
 
 
+
     if(!button)
     return;
 
@@ -441,10 +427,11 @@ function updateLikeButton(active){
 
 
         button.innerHTML =
-        '♥ 已赞';
+        '♡';
 
 
     }
+
     else{
 
 
@@ -454,7 +441,7 @@ function updateLikeButton(active){
 
 
         button.innerHTML =
-        '♡ 点赞';
+        '♡';
 
 
     }
@@ -466,53 +453,146 @@ function updateLikeButton(active){
 
 
 
+
+
 // =======================
-// 更新收藏按钮
+// 阅读深度
 // =======================
 
-function updateFavoriteButton(active){
+function getScrollDepth(){
 
 
-    const button =
-    document.querySelector(
-        '#favorite-button'
+    const height =
+    document.documentElement.scrollHeight
+    -
+    window.innerHeight;
+
+
+    if(height <=0){
+
+        return 100;
+
+    }
+
+
+    return Math.min(
+
+        100,
+
+        Math.round(
+
+            window.scrollY /
+            height *
+            100
+
+        )
+
+    );
+
+}
+
+
+
+
+// =======================
+// 是否完成阅读
+// =======================
+
+function isCompleted(){
+
+
+    return getScrollDepth() >= 80;
+
+}
+
+
+
+
+
+// =======================
+// 更新阅读数据
+// =======================
+
+async function updateReading(){
+
+
+    const duration =
+    Math.floor(
+
+        (Date.now()-startTime)
+        /
+        1000
+
     );
 
 
-    if(!button)
-    return;
+
+    const scrollDepth =
+    getScrollDepth();
 
 
 
-    if(active){
+    const completed =
+    isCompleted();
 
 
-        button.classList.add(
-            'favorited'
+
+    const {
+
+        error
+
+    } = await supabaseClient.rpc(
+
+        'update_reading',
+
+        {
+
+            p_article_id:
+            articleId,
+
+
+            p_lang:
+            articleLang,
+
+
+            p_visitor_id:
+            visitorId,
+
+
+            p_session_id:
+            sessionId,
+
+
+            p_duration:
+            duration,
+
+
+            p_scroll_depth:
+            scrollDepth,
+
+
+            p_is_completed:
+            completed
+
+
+        }
+
+    );
+
+
+
+    if(error){
+
+        console.error(
+            '阅读更新失败:',
+            error
         );
-
-
-        button.innerHTML =
-        '★ 已收藏';
-
-
-    }
-    else{
-
-
-        button.classList.remove(
-            'favorited'
-        );
-
-
-        button.innerHTML =
-        '☆ 收藏';
-
 
     }
 
 
 }
+
 
 
 
@@ -527,23 +607,13 @@ async function init(){
 
     if(!articleId || !articleLang){
 
-
         console.error(
-            '缺少 article_id 或 lang'
+            '缺少文章信息'
         );
-
 
         return;
 
     }
-
-
-
-    console.log(
-        'article:',
-        articleId,
-        articleLang
-    );
 
 
 
@@ -563,8 +633,9 @@ async function init(){
 
 
 // =======================
-// 事件绑定
+// 事件
 // =======================
+
 
 document.addEventListener(
 
@@ -589,23 +660,28 @@ document.addEventListener(
 
 
 
-    document
-
-    .querySelector(
-        '#favorite-button'
-    )
-
-    ?.addEventListener(
-
-        'click',
-
-        toggleFavorite
-
-    );
-
-
-
     init();
+
+
+});
+
+
+
+
+
+// =======================
+// 页面离开
+// =======================
+
+
+window.addEventListener(
+
+'beforeunload',
+
+()=>{
+
+
+    updateReading();
 
 
 });
