@@ -2,7 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.overexposure.media/zh-cn/post/2026/07/walden-translation-ch01pa1/</loc>
+    <loc>https://blog.overexposure.media/zh-cn/post/2026/07/2006-07-allan-poe-the-raven-analysis/</loc>
+    
+    <lastmod>2026-07-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.overexposure.media/post/2026/07/2006-07-thoreau-wealth-quote/</loc>
+    
+    <lastmod>2026-07-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.overexposure.media/quotes/index.html</loc>
+    
+    <lastmod>2026-07-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.overexposure.media/zh-cn/post/2026/07/2006-07-walden-translation-ch01pa1/</loc>
     
     <lastmod>2026-07-22</lastmod>
     
@@ -11,16 +38,7 @@
   </url>
   
   <url>
-    <loc>https://blog.overexposure.media/zh-cn/post/2026/07/walden-prequel-01/</loc>
-    
-    <lastmod>2026-07-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.overexposure.media/zh-cn/post/2026/07/allan-poe-the-raven-analysis/</loc>
+    <loc>https://blog.overexposure.media/zh-cn/post/2026/07/2006-07-walden-prequel-01/</loc>
     
     <lastmod>2026-07-22</lastmod>
     
@@ -74,7 +92,7 @@
   </url>
   
   <url>
-    <loc>https://blog.overexposure.media/zh-cn/post/2026/07/wheeler-wilcox-solitude-analysis/</loc>
+    <loc>https://blog.overexposure.media/zh-cn/post/2026/07/2006-07-wheeler-wilcox-solitude-analysis/</loc>
     
     <lastmod>2026-07-14</lastmod>
     
@@ -83,7 +101,7 @@
   </url>
   
   <url>
-    <loc>https://blog.overexposure.media/zh-cn/post/2026/07/thoreau-walden-ch1para1-analysis/</loc>
+    <loc>https://blog.overexposure.media/zh-cn/post/2026/07/2006-07-thoreau-walden-ch1para1-analysis/</loc>
     
     <lastmod>2026-07-12</lastmod>
     
@@ -92,7 +110,7 @@
   </url>
   
   <url>
-    <loc>https://blog.overexposure.media/zh-cn/post/2026/07/william-ernest-henley-invictus-analysis/</loc>
+    <loc>https://blog.overexposure.media/zh-cn/post/2026/07/2006-07-william-ernest-henley-invictus-analysis/</loc>
     
     <lastmod>2026-07-07</lastmod>
     
@@ -187,6 +205,27 @@
   </url>
   
   <url>
+    <loc>https://blog.overexposure.media/tags/simplicity/</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.overexposure.media/tags/wealth/</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.overexposure.media/tags/paradox/</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.overexposure.media/tags/walden/</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>weekly</changefreq>
@@ -209,13 +248,6 @@
   
   <url>
     <loc>https://blog.overexposure.media/tags/classic-study/</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.overexposure.media/tags/essay/</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -256,6 +288,13 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://blog.overexposure.media/tags/essay/</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -266,7 +305,7 @@
   </url>
   
   <url>
-    <loc>https://blog.overexposure.media/categories/serial/</loc>
+    <loc>https://blog.overexposure.media/categories/quote/</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -281,6 +320,20 @@
   
   <url>
     <loc>https://blog.overexposure.media/categories/literary-analysis/prose/</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.overexposure.media/categories/quote/wealth/</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.overexposure.media/categories/serial/</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
