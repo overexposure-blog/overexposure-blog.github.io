@@ -3433,3 +3433,34 @@
     color:#e74c3c;
 
 }
+
+.daily-quote {
+    text-align:center;
+    margin:3em 0;
+}
+
+
+.daily-quote blockquote {
+    font-size:1.3em;
+    font-style:italic;
+}
+
+
+.daily-quote footer {
+    margin-top:1em;
+    font-size:.9em;
+}
+
+
+.quote-more {
+    margin-top:2em;
+}
+
+.series-cover-image {
+    max-width: 200px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
