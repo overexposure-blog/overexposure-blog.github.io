@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://blog.overexposure.media/post/2026/07/walden-prequel-01/</loc>
+    <loc>https://blog.overexposure.media/post/2026/07/thoreau-read-deliberately-quote/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>https://blog.overexposure.media/post/2026/07/thoreau-read-deliberately-quote/</loc>
+    <loc>https://blog.overexposure.media/post/2026/07/walden-prequel-01/</loc>
     
     <lastmod>2026-07-24</lastmod>
     
@@ -328,21 +328,7 @@
   </url>
   
   <url>
-    <loc>https://blog.overexposure.media/categories/quote/</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.overexposure.media/categories/literary-analysis/poetry/</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.overexposure.media/categories/quote/reading/</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -377,7 +363,21 @@
   </url>
   
   <url>
-    <loc>https://blog.overexposure.media/categories/quote/wealth/</loc>
+    <loc>https://blog.overexposure.media/categories/quotes/</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.overexposure.media/categories/quotes/wealth/</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.overexposure.media/categories/quotes/reading/</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
